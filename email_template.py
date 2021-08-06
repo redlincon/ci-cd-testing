@@ -21,7 +21,7 @@ def send_email():
                     <p>THE PAYMENT HANDLER IS DOWN. PLEASE CLICK
                     <a href='https://app.datadoghq.com/logs?from_ts=1626523613058&index=&live=true&query=&to_ts=1626524513058'>HERE</a> TO VIEW THE LOGS SO THAT YOU CAN TRACK AND SOLVE THE ISSUE\r\n
                     </p>
-                    <p>From the Payment Hub Lambda Function</p>
+                    <p>From the Payment Hub Lambda Functionx</p>
             </body>
         </html>
             """
