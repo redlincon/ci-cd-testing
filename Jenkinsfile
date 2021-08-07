@@ -7,7 +7,7 @@ pipeline {
                     checkout scm
                 }
         }
-        stage('Setup') { // Install any dependencies you need to perform testing
+        stage('Setup') { //Initiating Virtual Environment & Install any dependencies you need to perform testing
             steps {
                 script {
                     sh "virtualenv -p python3 py3env"
@@ -16,7 +16,7 @@ pipeline {
                     }
                 }
             }
-            stage("Testing"){                  
+            stage("Testing"){ // Run Tests                  
                 steps {
                     script {
 
@@ -26,7 +26,7 @@ pipeline {
                     }
                 }
             }
-            stage("Deploy"){
+            stage("Deploy"){ //Deploy to S3
                 steps {
                     script {
                                 
