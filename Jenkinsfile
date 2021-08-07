@@ -1,11 +1,15 @@
 pipeline {
     agent any
-    stages {
-            stage("Testing"){
-                steps {
+    environment {
                 sh "virtualenv -p python3 py3env"
                 sh "source py3env/bin/activate"
                 sh "source py3env/bin/activate"
+
+    }
+    stages {
+            stage("Testing"){
+                steps {
+
                 sh "cd /var/lib/jenkins/workspace/monitoring/"
                 sh "python -m unittest test_PaymentHubMonitor.py"
                 sh "deactivate"
