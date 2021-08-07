@@ -10,6 +10,8 @@ pipeline {
         stage('Setup') { // Install any dependencies you need to perform testing
             steps {
                 script {
+                    sh "virtualenv -p python3 py3env"
+                    sh "source py3env/bin/activate"
                     sh "pip install -r requirements.txt"
                     }
                 }
