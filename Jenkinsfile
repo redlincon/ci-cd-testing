@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                       pip install -r requirements.txt
+                       pip install -r requirements.txt \n
                     """
                     }
                 }
@@ -21,10 +21,10 @@ pipeline {
                     script {
 
                 sh """"
-                cd /var/lib/jenkins/workspace/monitoring/
-                python -m unittest test_PaymentHubMonitor.py
-                deactivate
-                exit
+                cd /var/lib/jenkins/workspace/monitoring/ \n
+                python -m unittest test_PaymentHubMonitor.py \n
+                deactivate \n
+                exit \n
                 """"
                     }
                 }
@@ -34,9 +34,9 @@ pipeline {
                     script {
                                 
                             sh """
-                            zip -r PaymentHubMonitoring.zip *
-                            aws cloudformation deploy --template-file cft.json --stack-name jenkinscftplugin-s3 --region us-east-1 --no-fail-on-empty-changeset
-                            aws s3 cp PaymentHubMonitoring.zip s3://paymenthubchecker
+                            zip -r PaymentHubMonitoring.zip * \n
+                            aws cloudformation deploy --template-file cft.json --stack-name jenkinscftplugin-s3 --region us-east-1 --no-fail-on-empty-changeset \n
+                            aws s3 cp PaymentHubMonitoring.zip s3://paymenthubchecker \n
                             """
 
                             }
