@@ -21,9 +21,7 @@ pipeline {
                     script {
 
                 sh "cd /var/lib/jenkins/workspace/monitoring/"
-                sh "python3 -m unittest test_PaymentHubMonitor.py"
-                sh "deactivate"
-                sh "exit"
+                sh "python3 -m unittest test_PaymentHubMonitor.py"               
                 
                     }
                 }
