@@ -6,7 +6,7 @@ def PaymentHubMonitor_handler(event, context):
     response = requests.get("https://dev.simusolar.lamt.app/payments/")
 
     if response.status_code == 200:
-        output = "REQUEST HAS BEEN SENT SUCCESSFULY"
+        output = "REQUEST HAS BEEN SENT SUCCESSFULLY"
         return output
 
     else:
