@@ -1,30 +1,47 @@
 pipeline {
     agent any
-    environment {
-                sh "virtualenv -p python3 py3env" +
-                   "source py3env/bin/activate" +
-                   "source py3env/bin/activate"
-
-    }
+   
     stages {
-            stage("Testing"){
+         stage('Checkout') { // Checkout (git clone ...) the projects repository
+            steps {
+                    checkout scm
+                }
+        }
+        stage('Setup') { // Install any dependencies you need to perform testing
+            steps {
+                script {
+                    sh """
+                       pip install -r requirements.txt
+                    """
+                    }
+                }
+            }
+            stage("Testing"){                  
                 steps {
+                    script {
 
-                sh "cd /var/lib/jenkins/workspace/monitoring/"
-                sh "python -m unittest test_PaymentHubMonitor.py"
-                sh "deactivate"
-                sh "exit"
-
+                sh """"
+                cd /var/lib/jenkins/workspace/monitoring/
+                python -m unittest test_PaymentHubMonitor.py
+                deactivate
+                exit
+                """"
+                    }
                 }
             }
             stage("Deploy"){
-                            steps {
-                            sh "zip -r PaymentHubMonitoring.zip *"
-                            sh "aws cloudformation deploy --template-file cft.json --stack-name jenkinscftplugin-s3 --region us-east-1 --no-fail-on-empty-changeset"
-                            sh "aws s3 cp PaymentHubMonitoring.zip s3://paymenthubchecker"
+                steps {
+                    script {
+                                
+                            sh """
+                            zip -r PaymentHubMonitoring.zip *
+                            aws cloudformation deploy --template-file cft.json --stack-name jenkinscftplugin-s3 --region us-east-1 --no-fail-on-empty-changeset
+                            aws s3 cp PaymentHubMonitoring.zip s3://paymenthubchecker
+                            """
 
                             }
                         }
+            }
 
 
     }
