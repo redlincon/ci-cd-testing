@@ -12,7 +12,7 @@ pipeline {
                 script {
                     sh "virtualenv -p python3 py3env"
                     sh "source py3env/bin/activate"
-                    sh "pip install -r ./requirement.txt"
+                    sh "pip3 install -r ./requirement.txt"
                     }
                 }
             }
@@ -21,7 +21,7 @@ pipeline {
                     script {
 
                 sh "cd /var/lib/jenkins/workspace/monitoring/"
-                sh "python -m unittest test_PaymentHubMonitor.py"
+                sh "python3 -m unittest test_PaymentHubMonitor.py"
                 sh "deactivate"
                 sh "exit"
                 
