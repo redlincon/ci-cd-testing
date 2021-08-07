@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-                sh "virtualenv -p python3 py3env"
-                sh "source py3env/bin/activate"
-                sh "source py3env/bin/activate"
+                sh "virtualenv -p python3 py3env" +
+                   "source py3env/bin/activate" +
+                   "source py3env/bin/activate"
 
     }
     stages {
