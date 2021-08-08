@@ -7,7 +7,7 @@ def send_email():
 
     AWS_REGION = "us-east-2"
 
-    SUBJECT = "PAYMENT HANDLER IS DOWN"
+    SUBJECT = "PAYMENT HANDLER IS OFF"
 
     BODY_TEXT = ("PAYMENT HANDLER IS DOWN\r\n"
                  "PLEASE CLICK <a href='https://app.datadoghq.com/logs?from_ts=1626523613058&index=&live=true&query=&to_ts=1626524513058'>HERE</a> TO VIEW THE LOGS SO THAT YOU CAN TRACK AND SOLVE THE ISSUE\r\n"
