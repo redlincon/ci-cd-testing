@@ -40,7 +40,7 @@ pipeline {
             stage("Update lambda"){ //Deploy to S3
                             steps {
                                 script {
-                                        sh "aws lambda update-function-code --function-name PaymentHubMonitoring --region us-east-1 --s3-bucket s3://paymenthubchecker"
+                                        sh "aws lambda update-function-code --function-name PaymentHubMonitoring --region us-east-1 --s3-bucket --s3-key PaymentHubMonitoring.zip"
 
                                 }
                             }
