@@ -7,7 +7,7 @@ def PaymentHubMonitor_handler(event, context):
 
     if response.status_code == 200:
         email_template.send_email()
-        output = "REQUEST HAS BEEN SENT SUCCESSFULLY"
+        output = "REQUEST HAS BEEN SENT SUCCESSFULY"
         return output
 
     else:
