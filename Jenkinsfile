@@ -7,28 +7,26 @@ pipeline {
                     checkout scm
                 }
         }
-        stage('Setup') { // Install any dependencies you need to perform testing
+        stage('Setup') { //Initiating Virtual Environment & Install any dependencies you need to perform testing
             steps {
                 script {
                     sh "virtualenv -p python3 py3env"
                     sh "source py3env/bin/activate"
-                    sh "pip install -r ./requirements.txt"
+                    sh "pip3 install -r ./requirement.txt"
                     }
                 }
             }
-            stage("Testing"){                  
+            stage("Testing"){ // Run Tests                  
                 steps {
                     script {
 
                 sh "cd /var/lib/jenkins/workspace/monitoring/"
-                sh "python -m unittest test_PaymentHubMonitor.py"
-                sh "deactivate"
-                sh "exit"
+                sh "python3 -m unittest test_PaymentHubMonitor.py"               
                 
                     }
                 }
             }
-            stage("Deploy"){
+            stage("Deploy"){ //Deploy to S3
                 steps {
                     script {
                                 
