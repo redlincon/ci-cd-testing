@@ -3,7 +3,7 @@ import boto3
 def send_email():
     SENDER = "PAYMENT HUB LAMBDA FUNCTION <redlincon@gmail.com>"
 
-    RECIPIENT = "hugutech@gmail.com"
+    RECIPIENT = "redlincon@gmail.com"
 
     AWS_REGION = "us-east-2"
 
