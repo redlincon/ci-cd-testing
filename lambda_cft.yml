@@ -6,46 +6,46 @@ Resources:
 
   LambdaZipsBucket:
 
-      Type: AWS::S3::Bucket
+    Type: AWS::S3::Bucket
 
-      paymenthubRole:
+  PaymenthubRole:
 
-          Type: AWS::IAM::Role
+      Type: AWS::IAM::Role
 
-          Properties:
+      Properties:
 
-            AssumeRolePolicyDocument:
+        AssumeRolePolicyDocument:
 
-              Version: '2012-10-17'
+          Version: '2012-10-17'
 
-              Statement:
+          Statement:
 
-                Effect: Allow
+            Effect: Allow
 
-                Principal:
+            Principal:
 
-                  Service: lambda.amazonaws.com
+              Service: lambda.amazonaws.com
 
-                Action: sts:AssumeRole
+            Action: sts:AssumeRole
 
-            ManagedPolicyArns: arn:aws:iam::aws:policy/servicerole/AWSLambdaBasicExecutionRole
+        ManagedPolicyArns: arn:aws:iam::aws:policy/servicerole/AWSLambdaBasicExecutionRole
 
-      paymenthubmonitor:
+  paymenthubmonitor:
 
-        DependsOn: CopyZips
+      DependsOn: CopyZips
 
-        Type: AWS::Lambda::Function
+      Type: AWS::Lambda::Function
 
-        Properties:
-          FunctionName : paymenthubmonitor
+      Properties:
+        FunctionName : paymenthubmonitor
 
-          Description: Example
+        Description: Example
 
-          Handler: PaymentHubMonitor_handler
+        Handler: PaymentHubMonitor_handler
 
-          Runtime: python3.9
+        Runtime: python3.9
 
-          Role: !GetAtt 'paymenthubRole'
+        Role: !GetAtt 'paymenthubRole'
 
-          Timeout: 300
+        Timeout: 300
 
