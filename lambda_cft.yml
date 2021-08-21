@@ -8,7 +8,7 @@ Resources:
 
     Type: AWS::S3::Bucket
 
-      paymenthubrole:
+      paymenthubRole:
 
           Type: AWS::IAM::Role
 
@@ -45,7 +45,7 @@ Resources:
 
           Runtime: python3.9
 
-          Role: !GetAtt 'paymenthubrole'
+          Role: !GetAtt 'paymenthubRole'
 
           Timeout: 300
 
