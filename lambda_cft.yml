@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 
-Description: 'Example Lambda zip copy'
+Description: 'Create lambda function'
 
 Resources:
 
