@@ -9,7 +9,7 @@ Resources:
     Type: AWS::S3::Bucket
     
     Properties:
-      BucketName: paymenthub
+      BucketName: paymenthubchecker
 
   PaymenthubRole:
 
