@@ -13,7 +13,6 @@
           "S3Key" : "PaymentHubMonitoring.zip"
         },
         "Description" : "Payment hub lambda function"
-
       }
     }
   }
