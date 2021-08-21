@@ -45,7 +45,7 @@ Resources:
 
         Runtime: python3.9
 
-        Role: !GetAtt 'PaymenthubRole.ARN'
+        Role: !GetAtt 'PaymenthubRole.Arn'
 
         Timeout: 300
 
