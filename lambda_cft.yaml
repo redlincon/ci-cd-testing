@@ -8,9 +8,6 @@ Resources:
       Runtime: python3.9
       Role: arn:aws:iam::608561752920:role/paymenthubrole
       Handler: PaymentHubMonitor_handler
-      Code:
-        S3Bucket: s3://paymenthubchecker
-        S3Key: PaymentHubMonitoring.zip
       Description: Invoke a function during stack creation.
       TracingConfig:
         Mode: Active
