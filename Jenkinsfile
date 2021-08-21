@@ -34,6 +34,7 @@ pipeline {
                             sh "aws cloudformation deploy --template-file cft.json --stack-name jenkinscftplugin-s3 --region us-east-1 --no-fail-on-empty-changeset"
                             sh "aws s3 cp PaymentHubMonitoring.zip s3://paymenthubchecker"
                             sh "aws cloudformation deploy --template-file lambda_cft.json --stack-name jenkinscftplugin-lambda --region us-east-1"
+                            sh "aws cloudformation describe-stack-events --stack-name jenkinscftplugin-lambda"
                     }
                 }
             }
