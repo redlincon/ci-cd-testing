@@ -1,0 +1,17 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "S3Bucket": {
+      "Type": "AWS::Lambda::Function",
+      "Properties" : {
+        "FunctionName" : "paymenthubmonitor",
+        "Handler" : "PaymentHubMonitor_handler",
+        "Runtime" : "python3.9",
+        "Role" : "arn:aws:iam::608561752920:role/paymenthubrole",
+        "Description" : "Payment hub lambda function"
+
+
+      }
+    }
+  }
+}

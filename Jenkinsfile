@@ -7,12 +7,12 @@ pipeline {
                     checkout scm
                 }
         }
-        stage('Setup') { //Initiating Virtual Environment & Install any dependencies you need to perform testing
+        stage('Setup') { //Initiatinng Virtual Environment & Install any dependencies you need to perform testing
             steps {
                 script {
                     sh "virtualenv -p python3 py3env"
                     sh "source py3env/bin/activate"
-                    sh "pip3 install -r ./requirement.txt"
+                    sh "pip3 install -r ./requirements.txt"
                     }
                 }
             }
@@ -32,12 +32,13 @@ pipeline {
                                 
                             sh "zip -r PaymentHubMonitoring.zip * "
                             sh "aws cloudformation deploy --template-file cft.json --stack-name jenkinscftplugin-s3 --region us-east-1 --no-fail-on-empty-changeset"
+                            sh "aws cloudformation deploy --template-file lambda_cft.json --stack-name jenkinscftplugin-s3 --region us-east-1 --no-fail-on-empty-changeset"
                             sh "aws s3 cp PaymentHubMonitoring.zip s3://paymenthubchecker"
 
                     }
                 }
             }
-            stage("Update lambda"){ //Deploy to S3
+            stage("Update lambda"){ //Update lambda function
                             steps {
                                 script {
                                         sh "aws lambda update-function-code --function-name 'PaymentHubMonitoring' --region us-east-1 --s3-bucket 'paymenthubchecker' --s3-key 'PaymentHubMonitoring.zip'"
@@ -45,6 +46,7 @@ pipeline {
                                 }
                             }
                         }
+
 
 
     }
