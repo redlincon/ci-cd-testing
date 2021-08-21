@@ -1,6 +1,6 @@
 pipeline {
     agent any
-   
+  
     stages {
          stage('Checkout') { // Checkout (git clone ...) the projects repository
             steps {
@@ -47,5 +47,6 @@ pipeline {
                                 }
                             }
                         }
+  
     }
 }
