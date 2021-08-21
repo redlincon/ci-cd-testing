@@ -1,7 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Resources": {
-    "S3Bucket": {
+
       "Type": "AWS::Lambda::Function",
       "Properties" : {
         "FunctionName" : "paymenthubmonitor",
@@ -12,8 +11,7 @@
           "S3Bucket" : "s3://paymenthubchecker",
           "S3Key" : "PaymentHubMonitoring.zip"
         },
-        "Description" : "Payment hub lambda function"
+      "Description" : "Payment hub lambda function"
       }
-    }
-  }
+  
 }
