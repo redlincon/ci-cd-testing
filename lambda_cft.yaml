@@ -4,7 +4,7 @@ Resources:
   primer:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName : paymenthubmonitor,
+      FunctionName : paymenthubmonitor
       Runtime: python3.9
       Role: arn:aws:iam::608561752920:role/paymenthubrole
       Handler: PaymentHubMonitor_handler
