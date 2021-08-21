@@ -49,6 +49,3 @@ Resources:
         Role: !GetAtt 'PaymenthubRole.Arn'
 
         Timeout: 300
-        
-   
-
