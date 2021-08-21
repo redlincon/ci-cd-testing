@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: 'Example Lambda zip copy'
+
+Resources:
+
+    LambdaZipsBucket:
+
+      Type: AWS::S3::Bucket
+
+      MyFunctionRole:
+
+          Type: AWS::IAM::Role
+
+          Properties:
+
+            AssumeRolePolicyDocument:
+
+              Version: '2012-10-17'
+
+              Statement:
+
+                Effect: Allow
+
+                Principal:
+
+                  Service: lambda.amazonaws.com
+
+                Action: sts:AssumeRole
+
+            ManagedPolicyArns: arn:aws:iam::aws:policy/servicerole/AWSLambdaBasicExecutionRole
+
+      paymenthubmonitor:
+
+        DependsOn: CopyZips
+
+        Type: AWS::Lambda::Function
+
+        Properties:
+          FunctionName : paymenthubmonitor
+
+          Description: Example
+
+          Handler: PaymentHubMonitor_handler
+
+          Runtime: python3.9
+
+          Role: !GetAtt 'arn:aws:iam::608561752920:role/service-role/paymentReceivedChecker-role-dg3c5r4u'
+
+          Timeout: 300
+
