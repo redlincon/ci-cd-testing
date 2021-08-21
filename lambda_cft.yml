@@ -32,8 +32,6 @@ Resources:
 
   paymenthubmonitor:
 
-      DependsOn: CopyZips
-
       Type: AWS::Lambda::Function
 
       Properties:
