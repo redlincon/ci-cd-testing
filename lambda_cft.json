@@ -11,7 +11,7 @@
         "Code" : {
           "S3Bucket" : "s3://paymenthubchecker",
           "S3Key" : "PaymentHubMonitoring.zip"
-        }
+        },
         "Description" : "Payment hub lambda function"
 
 
