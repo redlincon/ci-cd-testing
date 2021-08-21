@@ -4,9 +4,9 @@ Description: 'Example Lambda zip copy'
 
 Resources:
 
-    LambdaZipsBucket:
+  LambdaZipsBucket:
 
-      Type: AWS::S3::Bucket
+    Type: AWS::S3::Bucket
 
       paymenthubrole:
 
