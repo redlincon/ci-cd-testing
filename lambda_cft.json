@@ -13,5 +13,13 @@
 
       }
     }
+  },
+  "Outputs": {
+    "FunctionName": {
+      "Value": {
+        "Ref": "lambda"
+      },
+      "Description": "Payment hub lambda function"
+    }
   }
 }
